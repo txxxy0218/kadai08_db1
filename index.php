@@ -9,22 +9,19 @@ $files = getAllFile();
 <head>
   <meta charset="UTF-8">
   <title>データ登録</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
 
 <!-- Head[Start] -->
 <header>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-    <div class="navbar-header"><a class="navbar-brand" href="select.php">データ一覧</a></div>
-    </div>
-  </nav>
+    <div class="logo">こども画伯</div>
 </header>
 <!-- Head[End] -->
 
 <!-- Main[Start] -->
 <form method="POST" action="insert.php" enctype="multipart/form-data">
-  <div class="jumbotron">
+  <div class="register">
     <fieldset>
         <legend>こども画伯の絵画登録</legend>
         <label>画像：
@@ -48,13 +45,15 @@ $files = getAllFile();
   </div>
 </form>
 
-<div>
+<div class="list">
     <?php foreach($files as $file): ?>
-        <img src="<?php echo "{$file['img_path']}"; ?>" alt="">
-        <p><?php echo "{$file['title']}"; ?></p>
-        <p><?php echo "{$file['name']}"; ?></p>
-        <p><?php echo "{$file['date']}"; ?></p>
-        <p><?php echo "{$file['memo']}"; ?></p>
+        <div class="card">
+          <img src="<?php echo "{$file['img_path']}"; ?>" alt="" class="image">
+          <p><?php echo "{$file['title']}"; ?></p>
+          <p><?php echo "{$file['name']}"; ?></p>
+          <p><?php echo "{$file['date']}"; ?></p>
+          <p><?php echo "{$file['memo']}"; ?></p>
+        </div>
     <?php endforeach; ?>
 </div>
 <!-- Main[End] -->
